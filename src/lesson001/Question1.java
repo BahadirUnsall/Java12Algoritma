@@ -1,9 +1,24 @@
 package lesson001;
 
+import java.util.Scanner;
+
 public class Question1 {
 
 	public static void main(String[] args) {
-		System.out.println("Github Denemesi");
+
+	Scanner scanner = new Scanner(System.in);
+		
+		String isim;
+		String soyIsim;
+		
+		System.out.println("İsim giriniz");
+		isim = scanner.next();
+		
+		System.out.println("Soyisim giriniz");
+		soyIsim = scanner.next();		
+		
+		System.out.println("İsim ve Soyisminiz: " + isim +" " + soyIsim);
+		
 	}
 
 }
