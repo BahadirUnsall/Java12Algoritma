@@ -11,7 +11,7 @@ public class Question1 {
 		String isim;
 		String soyIsim;
 		
-		System.out.println("İsim giriniz");
+		System.out.println("İsim girinız");
 		isim = scanner.next();
 		
 		System.out.println("Soyisim giriniz");
