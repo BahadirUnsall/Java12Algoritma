@@ -6,7 +6,7 @@ public class Question30 {
 
 	public static void main(String[] args) {
 		// 0123456789012345678901234
-		String text = "Java,Spring,Postgre,React";
+		String text = "Java     ,    Spring,  Postgre  ,React";
 
 		/*
 		 * for(int i=0;i<text.length();i++) { if(text.charAt(i) == ',') {
@@ -18,6 +18,7 @@ public class Question30 {
 		int index = 0;
 		for (int i = 0; i < text.length(); i++) {
 			if (text.charAt(i) == ',') {
+				text.trim().charAt(i);
 				System.out.println(text.substring(index, i));
 				index = i + 1;
 			}
