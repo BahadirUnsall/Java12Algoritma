@@ -3,65 +3,106 @@ package lesson012.product;
 import lesson012.product.utility.*;
 
 public class Product {
-	private String isim;
-	private int id;
-	private String seriNo;
-	private int adet;
 
+	private String name;
+
+	private String id;
+
+	private int stock;
+
+	private double price;
+
+	private String productCode;
+
+	private boolean isActive = true;;
+
+	// this --> eğer isimlendirmeler aynı ise
+	// public void (String name){
+	// this.name = name
+	// }
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	// Overloading
 	public Product() {
-		this.id = RandomGenerateId.generateId();
+		this.id = RandomGenerateID.generateId();
 	}
 
-	public Product(String isim, int id, String seriNo, int adet) {
+	public Product(String name, int stock, double price) {
 		this();
-		this.isim = isim;
-		this.seriNo = seriNo;
-		this.adet = adet;
+		this.name = name;
+		this.stock = stock;
+		this.price = price;
+		this.productCode = RandomGenerateID.generadeProductCode(name);
 	}
 
-	public int getId() {
+	public String getPdocutCode() {
+		return productCode;
+	}
+
+	public void setPdocutCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getStock() {
+		return stock;
 	}
 
-	public String getIsim() {
-		return isim;
+	public void setStock(int stock) {
+		if (stock <= 0) {
+			System.out.println("Stok 0 dan az olamaz");
+		} else {
+			this.stock = stock;
+			addToListing();
+		}
 	}
 
-	public void setIsim(String isim) {
-		this.isim = isim;
+	public double getPrice() {
+		return price;
 	}
 
-	public String getSeriNo() {
-		return seriNo;
+	public void setPrice(double price) {
+		if (price < 0) {
+			System.out.println("Stok 0 dan az olamaz");
+		} else {
+			this.price = price;
+		}
 	}
 
-	public void setSeriNo(String seriNo) {
-		this.seriNo = seriNo;
+	public void updateName(String name) {
+		setName(name);
 	}
 
-	public int getAdet() {
-		return adet;
+	public void saveToDatabase() {
+		System.out.println(getName() + " Veritabanına Kaydedildi");
 	}
 
-	public void setAdet(int adet) {
-		this.adet = adet;
+	public void removeFromList() {
+		setActive(false);
+		System.out.println("Gosterimden kaldirildi.");
 	}
 
-	public void isimGuncelle(String isim) {
-		setIsim(isim);
-	}
-
-	public void veritabaninaKaydet() {
-		System.out.println(getIsim() + " veri tabanina kaydedildi.");
-	}
-
-	@Override
-	public String toString() {
-		return "Product [isim=" + isim + ", id=" + id + "]";
+	public void addToListing() {
+		setActive(true);
+		System.out.println("Gosterime koyuldu.");
 	}
 
 }
