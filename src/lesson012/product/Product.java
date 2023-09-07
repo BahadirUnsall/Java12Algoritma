@@ -105,4 +105,11 @@ public class Product {
 		System.out.println("Gosterime koyuldu.");
 	}
 
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", id=" + id + ", stock=" + stock + ", price=" + price + ", productCode="
+				+ productCode + ", isActive=" + isActive + "]";
+	}
+	
+	
 }
