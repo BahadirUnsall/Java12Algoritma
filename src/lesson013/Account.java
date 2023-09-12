@@ -1,11 +1,13 @@
 package lesson013;
 
 public class Account {
+	public static final int KREDI_PUAN_ARTIS_MIKTARI = 10;
 	private String accountNo;
 	private double money;
 	private boolean krediBasvurusu;
-	private double istenenKrediMiktar;
-	
+	private double istenenKrediMiktari;
+	private double krediBorcu;
+	private int krediPuani;
 	
 	public Account() {
 		super();
@@ -14,6 +16,21 @@ public class Account {
 		super();
 		this.accountNo = accountNo;
 		this.money = money;
+	}
+	
+	
+	
+	public double getKrediBorcu() {
+		return krediBorcu;
+	}
+	public void setKrediBorcu(double krediBorcu) {
+		this.krediBorcu = krediBorcu;
+	}
+	public int getKrediPuani() {
+		return krediPuani;
+	}
+	public void setKrediPuani(int krediPuani) {
+		this.krediPuani = krediPuani;
 	}
 	public String getAccountNo() {
 		return accountNo;
@@ -35,11 +52,11 @@ public class Account {
 		this.krediBasvurusu = krediBasvurusu;
 	}
 	
-	public double getIstenenKrediMiktar() {
-		return istenenKrediMiktar;
+	public double getIstenenKrediMiktari() {
+		return istenenKrediMiktari;
 	}
-	public void setIstenenKrediMiktar(double istenenKrediMiktar) {
-		this.istenenKrediMiktar = istenenKrediMiktar;
+	public void setIstenenKrediMiktari(double istenenKrediMiktar) {
+		this.istenenKrediMiktari = istenenKrediMiktar;
 	}
 	@Override
 	public String toString() {

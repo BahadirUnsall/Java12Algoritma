@@ -1,21 +1,46 @@
 package lesson013;
 
 public class AdminManager {
-	public void basvuruOnayla(Account account) {
-		if (account.isKrediBasvurusu()) {
-			System.out.println("Kredi basvurunuz onaylanmistir.");
-			
-			account.setMoney(account.getMoney() + account.getIstenenKrediMiktar());
-			account.setIstenenKrediMiktar(0);
-			account.setKrediBasvurusu(false);
+	public void basvuruOnayla(User user) {
+		if(user.getAccount().isKrediBasvurusu()) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Kredi başvurunuz onaylanmıştır. ");
+			mailGonder(user,"Kredi başvurunuz onaylanmıştır");
+			user.getAccount().setMoney(user.getAccount().getMoney() + user.getAccount().getIstenenKrediMiktari());
+			user.getAccount().setIstenenKrediMiktari(0);
+			user.getAccount().setKrediBasvurusu(false);
 		}else {
-			System.out.println(account.getAccountNo() + " Numarali hesap icin basvuru onaylanmadi");
+			System.out.println(user.getAccount().getAccountNo() + " Numaralı Hesap için Kredi başvurusu bulunmamaktadır");
 		}
 	}
-	public void basvuruReddet(Account account) {
-		if (account.isKrediBasvurusu()) {
+	public void basvuruReddet(User user) {
+		if (user.getAccount().isKrediBasvurusu()) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("Kredi basvurunuz reddedilmistir.");
-			account.setKrediBasvurusu(false);
+			mailGonder(user, user.getAccount().getIstenenKrediMiktari()+ " Tl'lik kredi basvurunuz reddedilmiştir.");
+			
+			user.getAccount().setIstenenKrediMiktari(0);
+			user.getAccount().setKrediBasvurusu(false);
+		}else {
+			System.out.println(user.getAccount().getAccountNo() + " numaralı hesap için kredi başvırısı bulunmamaktadır.");
 		}
+	}
+	public void mailGonder(User user,String mesaj) {
+		Mail mail = new Mail();
+		mail.setBaslik("KrediBasvuruHakkında");
+		mail.setIcerik(mesaj);
+		
+		
+		user.getArraylistListMail().add(mail);
 	}
 }	

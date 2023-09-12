@@ -22,8 +22,6 @@ public class AccountManager {
 		}
 	}
 	
-	
-	
 	public void hesapBilgileri(Account account) {
 		System.out.println(account);
 	}
