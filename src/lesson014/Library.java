@@ -6,11 +6,13 @@ import java.util.List;
 public class Library extends LibraryServiceImpl{
 	private String name;
 	private List<Book> bookList;
+	private List<Customer> customerList;
 	
 	
 	
 	public Library() {
 		this.bookList = new ArrayList<>();
+		this.customerList = new ArrayList<>();
 	}
 
 	public Library(String name) {
@@ -19,6 +21,14 @@ public class Library extends LibraryServiceImpl{
 		
 	}
 	
+	public List<Customer> getCustomerList() {
+		return customerList;
+	}
+
+	public void setCustomerList(List<Customer> customerList) {
+		this.customerList = customerList;
+	}
+
 	public String getName() {
 		return name;
 	}

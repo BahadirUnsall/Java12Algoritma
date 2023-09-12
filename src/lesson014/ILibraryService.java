@@ -8,4 +8,6 @@ public interface ILibraryService {
 	void getAllBooksByActive();
 	void getAuthorByName();
 	void deleteBookByID();
+	void changeStatusToDeleted(String id);
+	void applyDiscount(String id, double discountPrice);
 }
