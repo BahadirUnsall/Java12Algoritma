@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LibraryServiceImpl implements ILibraryService {
-	Scanner scanner = new Scanner(System.in);
 
 	@Override
 	public void createBook() {
@@ -81,7 +80,7 @@ public class LibraryServiceImpl implements ILibraryService {
 		}
 	}
 
-	private Book findById(String id) {
+	public Book findById(String id) {
 		for (Book book : Main.library.getBookList()) {
 			if (book.getId().equals(id)) {
 				return book;

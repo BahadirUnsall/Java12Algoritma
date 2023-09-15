@@ -1,5 +1,6 @@
 package lesson014;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 
@@ -12,7 +13,8 @@ public class Book {
 	private EStatus eStatus;
 	private Category category;
 	
-	
+	private LocalDateTime rentDate;
+	private LocalDateTime returnedDate;
 	
 	public Book() {
 		this.id = UUID.randomUUID().toString();
@@ -32,6 +34,30 @@ public class Book {
 	
 	
 	
+	public LocalDateTime getRentDate() {
+		return rentDate;
+	}
+
+
+
+	public void setRentDate(LocalDateTime rentDate) {
+		this.rentDate = rentDate;
+	}
+
+
+
+	public LocalDateTime getReturnedDate() {
+		return returnedDate;
+	}
+
+
+
+	public void setReturnedDate(LocalDateTime returnedDate) {
+		this.returnedDate = returnedDate;
+	}
+
+
+
 	public Category getCategory() {
 		return category;
 	}

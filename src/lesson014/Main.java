@@ -125,10 +125,13 @@ public class Main {
 			int vote = Util.getIntValue("seçiniz.");
 			switch (vote) {
 			case 1:
-				//kitap kirala
+				customerManager.rentBook(customer);
 				break;
 			case 2:	
-				
+				customerManager.kiralananKitaplariGoster(customer);
+				break;
+			case 3: 
+				customerManager.returnBook(customer);
 				break;
 			case 0:
 				System.out.println("Sistem kapandi");
@@ -154,6 +157,8 @@ public class Main {
 	}
 	static void showCustomerMenu() {
 		System.out.println("1-Kitap kirala");
+		System.out.println("2-kiralanan kitaplari göster");
+		System.out.println("3-kitabi iade et");
 		System.out.println("0-Logout");
 		System.out.println();
 		
